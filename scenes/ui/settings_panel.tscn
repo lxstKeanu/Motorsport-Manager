@@ -29,112 +29,59 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="Window" type="PanelContainer" parent="Center"]
-custom_minimum_size = Vector2(640, 0)
+custom_minimum_size = Vector2(1040, 680)
 layout_mode = 2
 theme_type_variation = &"DialogPanel"
 
 [node name="Column" type="VBoxContainer" parent="Center/Window"]
 layout_mode = 2
-theme_override_constants/separation = 22
+theme_override_constants/separation = 0
 
 [node name="Header" type="Label" parent="Center/Window/Column"]
 layout_mode = 2
-theme_type_variation = &"HeaderLabel"
+theme_type_variation = &"SectionLabel"
 text = "SETTINGS_TITLE"
 
-[node name="Grid" type="GridContainer" parent="Center/Window/Column"]
-layout_mode = 2
-theme_override_constants/h_separation = 24
-theme_override_constants/v_separation = 18
-columns = 3
-
-[node name="LanguageLabel" type="Label" parent="Center/Window/Column/Grid"]
-layout_mode = 2
-text = "SETTINGS_LANGUAGE"
-
-[node name="LanguageOption" type="OptionButton" parent="Center/Window/Column/Grid"]
-unique_name_in_owner = true
-auto_translate_mode = 2
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="LanguageGap" type="Control" parent="Center/Window/Column/Grid"]
+[node name="HeaderGap" type="Control" parent="Center/Window/Column"]
+custom_minimum_size = Vector2(0, 18)
 layout_mode = 2
 
-[node name="FullscreenLabel" type="Label" parent="Center/Window/Column/Grid"]
-layout_mode = 2
-text = "SETTINGS_FULLSCREEN"
-
-[node name="FullscreenCheck" type="CheckButton" parent="Center/Window/Column/Grid"]
+[node name="Tabs" type="HBoxContainer" parent="Center/Window/Column"]
 unique_name_in_owner = true
 layout_mode = 2
-size_flags_horizontal = 0
+theme_override_constants/separation = 0
 
-[node name="FullscreenGap" type="Control" parent="Center/Window/Column/Grid"]
+[node name="TabLine" type="ColorRect" parent="Center/Window/Column"]
+custom_minimum_size = Vector2(0, 1)
 layout_mode = 2
+color = Color(1, 1, 1, 0.08)
 
-[node name="MasterLabel" type="Label" parent="Center/Window/Column/Grid"]
-layout_mode = 2
-text = "SETTINGS_VOLUME_MASTER"
-
-[node name="MasterSlider" type="HSlider" parent="Center/Window/Column/Grid"]
+[node name="Pages" type="MarginContainer" parent="Center/Window/Column"]
 unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/margin_top = 20
+
+[node name="FooterLine" type="ColorRect" parent="Center/Window/Column"]
+custom_minimum_size = Vector2(0, 1)
+layout_mode = 2
+color = Color(1, 1, 1, 0.08)
+
+[node name="Footer" type="HBoxContainer" parent="Center/Window/Column"]
+custom_minimum_size = Vector2(0, 76)
+layout_mode = 2
+
+[node name="BackButton" type="Button" parent="Center/Window/Column/Footer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(140, 44)
+layout_mode = 2
+size_flags_vertical = 4
+text = "MENU_BACK"
+
+[node name="Hint" type="Label" parent="Center/Window/Column/Footer"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 4
-step = 1.0
-
-[node name="MasterValue" type="Label" parent="Center/Window/Column/Grid"]
-unique_name_in_owner = true
-auto_translate_mode = 2
-custom_minimum_size = Vector2(52, 0)
-layout_mode = 2
-horizontal_alignment = 2
-
-[node name="MusicLabel" type="Label" parent="Center/Window/Column/Grid"]
-layout_mode = 2
-text = "SETTINGS_VOLUME_MUSIC"
-
-[node name="MusicSlider" type="HSlider" parent="Center/Window/Column/Grid"]
-unique_name_in_owner = true
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 4
-step = 1.0
-
-[node name="MusicValue" type="Label" parent="Center/Window/Column/Grid"]
-unique_name_in_owner = true
-auto_translate_mode = 2
-custom_minimum_size = Vector2(52, 0)
-layout_mode = 2
-horizontal_alignment = 2
-
-[node name="SfxLabel" type="Label" parent="Center/Window/Column/Grid"]
-layout_mode = 2
-text = "SETTINGS_VOLUME_SFX"
-
-[node name="SfxSlider" type="HSlider" parent="Center/Window/Column/Grid"]
-unique_name_in_owner = true
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 4
-step = 1.0
-
-[node name="SfxValue" type="Label" parent="Center/Window/Column/Grid"]
-unique_name_in_owner = true
-auto_translate_mode = 2
-custom_minimum_size = Vector2(52, 0)
-layout_mode = 2
-horizontal_alignment = 2
-
-[node name="Hint" type="Label" parent="Center/Window/Column"]
-layout_mode = 2
 theme_type_variation = &"DimLabel"
 text = "SETTINGS_AUTOSAVE_HINT"
-
-[node name="BackButton" type="Button" parent="Center/Window/Column"]
-unique_name_in_owner = true
-custom_minimum_size = Vector2(160, 0)
-layout_mode = 2
-size_flags_horizontal = 8
-text = "MENU_BACK"
+horizontal_alignment = 2

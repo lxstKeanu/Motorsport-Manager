@@ -2,6 +2,9 @@
 
 [ext_resource type="Script" path="res://scenes/new_game/new_game.gd" id="1_new_game"]
 [ext_resource type="Script" path="res://scenes/main_menu/menu_background.gd" id="2_background"]
+[ext_resource type="Script" path="res://scenes/ui/character_portrait.gd" id="3_portrait"]
+[ext_resource type="PackedScene" path="res://scenes/ui/confirm_dialog.tscn" id="4_dialog"]
+[ext_resource type="Script" path="res://scenes/ui/difficulty_bar.gd" id="5_difficulty"]
 
 [node name="NewGame" type="Control"]
 layout_mode = 3
@@ -23,6 +26,7 @@ mouse_filter = 2
 script = ExtResource("2_background")
 car_center = Vector2(0.5, 0.5)
 left_shade = 0.0
+title_block = false
 
 [node name="Dim" type="ColorRect" parent="."]
 layout_mode = 1
@@ -32,9 +36,421 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
-color = Color(0.02, 0.024, 0.03, 0.6)
+color = Color(0.02, 0.024, 0.03, 0.72)
 
-[node name="Center" type="CenterContainer" parent="."]
+[node name="Margin" type="MarginContainer" parent="."]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 72
+theme_override_constants/margin_top = 44
+theme_override_constants/margin_right = 72
+theme_override_constants/margin_bottom = 40
+
+[node name="Layout" type="VBoxContainer" parent="Margin"]
+layout_mode = 2
+theme_override_constants/separation = 24
+
+[node name="Heading" type="VBoxContainer" parent="Margin/Layout"]
+layout_mode = 2
+theme_override_constants/separation = 2
+
+[node name="Title" type="Label" parent="Margin/Layout/Heading"]
+layout_mode = 2
+theme_type_variation = &"HeaderLabel"
+text = "NEW_GAME_TITLE"
+
+[node name="Subtitle" type="Label" parent="Margin/Layout/Heading"]
+layout_mode = 2
+theme_type_variation = &"DimLabel"
+text = "NEW_GAME_SUBTITLE"
+
+[node name="Body" type="HBoxContainer" parent="Margin/Layout"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 24
+
+[node name="TeamPanel" type="PanelContainer" parent="Margin/Layout/Body"]
+custom_minimum_size = Vector2(420, 0)
+layout_mode = 2
+theme_type_variation = &"DialogPanel"
+
+[node name="TeamColumn" type="VBoxContainer" parent="Margin/Layout/Body/TeamPanel"]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="TeamHeader" type="Label" parent="Margin/Layout/Body/TeamPanel/TeamColumn"]
+layout_mode = 2
+theme_type_variation = &"SectionLabel"
+text = "TEAM_LIST_TITLE"
+
+[node name="SlotList" type="VBoxContainer" parent="Margin/Layout/Body/TeamPanel/TeamColumn"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="AddFounderButton" type="Button" parent="Margin/Layout/Body/TeamPanel/TeamColumn"]
+unique_name_in_owner = true
+auto_translate_mode = 2
+custom_minimum_size = Vector2(0, 48)
+layout_mode = 2
+
+[node name="Spacer" type="Control" parent="Margin/Layout/Body/TeamPanel/TeamColumn"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="DifficultyHeader" type="Label" parent="Margin/Layout/Body/TeamPanel/TeamColumn"]
+layout_mode = 2
+theme_type_variation = &"SectionLabel"
+text = "TEAM_DIFFICULTY"
+
+[node name="DifficultyLabel" type="Label" parent="Margin/Layout/Body/TeamPanel/TeamColumn"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_type_variation = &"HeaderLabel"
+theme_override_font_sizes/font_size = 26
+text = "DIFFICULTY_1"
+
+[node name="DifficultyBar" type="Control" parent="Margin/Layout/Body/TeamPanel/TeamColumn"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 22)
+layout_mode = 2
+mouse_filter = 2
+script = ExtResource("5_difficulty")
+
+[node name="DifficultyScale" type="HBoxContainer" parent="Margin/Layout/Body/TeamPanel/TeamColumn"]
+layout_mode = 2
+
+[node name="Easy" type="Label" parent="Margin/Layout/Body/TeamPanel/TeamColumn/DifficultyScale"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_type_variation = &"SectionLabel"
+theme_override_font_sizes/font_size = 11
+text = "DIFFICULTY_EASY_END"
+
+[node name="Hard" type="Label" parent="Margin/Layout/Body/TeamPanel/TeamColumn/DifficultyScale"]
+layout_mode = 2
+theme_type_variation = &"SectionLabel"
+theme_override_font_sizes/font_size = 11
+text = "DIFFICULTY_HARD_END"
+horizontal_alignment = 2
+
+[node name="DifficultyHint" type="Label" parent="Margin/Layout/Body/TeamPanel/TeamColumn"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(340, 0)
+layout_mode = 2
+text = "DIFFICULTY_1_HINT"
+autowrap_mode = 3
+
+[node name="DifficultyNote" type="Label" parent="Margin/Layout/Body/TeamPanel/TeamColumn"]
+custom_minimum_size = Vector2(340, 0)
+layout_mode = 2
+theme_type_variation = &"DimLabel"
+text = "TEAM_DIFFICULTY_NOTE"
+autowrap_mode = 3
+
+[node name="RoleWarnings" type="Label" parent="Margin/Layout/Body/TeamPanel/TeamColumn"]
+unique_name_in_owner = true
+auto_translate_mode = 2
+custom_minimum_size = Vector2(340, 0)
+layout_mode = 2
+theme_type_variation = &"WarningLabel"
+autowrap_mode = 3
+
+[node name="EditorPanel" type="PanelContainer" parent="Margin/Layout/Body"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_type_variation = &"DialogPanel"
+
+[node name="EditorColumn" type="VBoxContainer" parent="Margin/Layout/Body/EditorPanel"]
+layout_mode = 2
+theme_override_constants/separation = 24
+
+[node name="EditorHeader" type="HBoxContainer" parent="Margin/Layout/Body/EditorPanel/EditorColumn"]
+layout_mode = 2
+
+[node name="EditorTitle" type="Label" parent="Margin/Layout/Body/EditorPanel/EditorColumn/EditorHeader"]
+unique_name_in_owner = true
+auto_translate_mode = 2
+layout_mode = 2
+size_flags_horizontal = 3
+theme_type_variation = &"HeaderLabel"
+
+[node name="RemoveButton" type="Button" parent="Margin/Layout/Body/EditorPanel/EditorColumn/EditorHeader"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 4
+text = "TEAM_REMOVE_FOUNDER"
+
+[node name="EditorBody" type="HBoxContainer" parent="Margin/Layout/Body/EditorPanel/EditorColumn"]
+layout_mode = 2
+theme_override_constants/separation = 36
+
+[node name="PortraitColumn" type="VBoxContainer" parent="Margin/Layout/Body/EditorPanel/EditorColumn/EditorBody"]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="PortraitFrame" type="PanelContainer" parent="Margin/Layout/Body/EditorPanel/EditorColumn/EditorBody/PortraitColumn"]
+custom_minimum_size = Vector2(240, 280)
+layout_mode = 2
+
+[node name="Portrait" type="Control" parent="Margin/Layout/Body/EditorPanel/EditorColumn/EditorBody/PortraitColumn/PortraitFrame"]
+unique_name_in_owner = true
+clip_contents = true
+layout_mode = 2
+mouse_filter = 2
+script = ExtResource("3_portrait")
+
+[node name="Stats" type="HBoxContainer" parent="Margin/Layout/Body/EditorPanel/EditorColumn/EditorBody/PortraitColumn"]
+layout_mode = 2
+theme_override_constants/separation = 24
+
+[node name="SkillBox" type="VBoxContainer" parent="Margin/Layout/Body/EditorPanel/EditorColumn/EditorBody/PortraitColumn/Stats"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 0
+
+[node name="SkillCaption" type="Label" parent="Margin/Layout/Body/EditorPanel/EditorColumn/EditorBody/PortraitColumn/Stats/SkillBox"]
+layout_mode = 2
+theme_type_variation = &"SectionLabel"
+theme_override_font_sizes/font_size = 12
+text = "FOUNDER_SKILL"
+
+[node name="SkillValue" type="Label" parent="Margin/Layout/Body/EditorPanel/EditorColumn/EditorBody/PortraitColumn/Stats/SkillBox"]
+unique_name_in_owner = true
+auto_translate_mode = 2
+layout_mode = 2
+theme_type_variation = &"HeaderLabel"
+theme_override_font_sizes/font_size = 30
+
+[node name="PotentialBox" type="VBoxContainer" parent="Margin/Layout/Body/EditorPanel/EditorColumn/EditorBody/PortraitColumn/Stats"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 0
+
+[node name="PotentialCaption" type="Label" parent="Margin/Layout/Body/EditorPanel/EditorColumn/EditorBody/PortraitColumn/Stats/PotentialBox"]
+layout_mode = 2
+theme_type_variation = &"SectionLabel"
+theme_override_font_sizes/font_size = 12
+text = "FOUNDER_POTENTIAL"
+
+[node name="PotentialValue" type="Label" parent="Margin/Layout/Body/EditorPanel/EditorColumn/EditorBody/PortraitColumn/Stats/PotentialBox"]
+unique_name_in_owner = true
+auto_translate_mode = 2
+layout_mode = 2
+theme_type_variation = &"HeaderLabel"
+theme_override_font_sizes/font_size = 30
+
+[node name="RandomizeButton" type="Button" parent="Margin/Layout/Body/EditorPanel/EditorColumn/EditorBody/PortraitColumn"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "FOUNDER_SHUFFLE"
+
+[node name="Fields" type="GridContainer" parent="Margin/Layout/Body/EditorPanel/EditorColumn/EditorBody"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/h_separation = 24
+theme_override_constants/v_separation = 12
+columns = 2
+
+[node name="NameLabel" type="Label" parent="Margin/Layout/Body/EditorPanel/EditorColumn/EditorBody/Fields"]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+size_flags_vertical = 0
+text = "FIELD_NAME"
+vertical_alignment = 1
+
+[node name="NameEdit" type="LineEdit" parent="Margin/Layout/Body/EditorPanel/EditorColumn/EditorBody/Fields"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+size_flags_horizontal = 3
+placeholder_text = "FIELD_NAME_PLACEHOLDER"
+
+[node name="RoleLabel" type="Label" parent="Margin/Layout/Body/EditorPanel/EditorColumn/EditorBody/Fields"]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+size_flags_vertical = 0
+text = "FIELD_ROLE"
+vertical_alignment = 1
+
+[node name="RoleCell" type="VBoxContainer" parent="Margin/Layout/Body/EditorPanel/EditorColumn/EditorBody/Fields"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 8
+
+[node name="RoleButtons" type="HBoxContainer" parent="Margin/Layout/Body/EditorPanel/EditorColumn/EditorBody/Fields/RoleCell"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="RoleHint" type="Label" parent="Margin/Layout/Body/EditorPanel/EditorColumn/EditorBody/Fields/RoleCell"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+theme_type_variation = &"DimLabel"
+text = "ROLE_DRIVER_HINT"
+autowrap_mode = 3
+
+[node name="AgeLabel" type="Label" parent="Margin/Layout/Body/EditorPanel/EditorColumn/EditorBody/Fields"]
+custom_minimum_size = Vector2(0, 32)
+layout_mode = 2
+size_flags_vertical = 0
+text = "FIELD_AGE"
+vertical_alignment = 1
+
+[node name="AgeRow" type="HBoxContainer" parent="Margin/Layout/Body/EditorPanel/EditorColumn/EditorBody/Fields"]
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="AgeSlider" type="HSlider" parent="Margin/Layout/Body/EditorPanel/EditorColumn/EditorBody/Fields/AgeRow"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+min_value = 18.0
+max_value = 65.0
+value = 30.0
+
+[node name="AgeValue" type="Label" parent="Margin/Layout/Body/EditorPanel/EditorColumn/EditorBody/Fields/AgeRow"]
+unique_name_in_owner = true
+auto_translate_mode = 2
+custom_minimum_size = Vector2(36, 0)
+layout_mode = 2
+horizontal_alignment = 2
+
+[node name="JobLabel" type="Label" parent="Margin/Layout/Body/EditorPanel/EditorColumn/EditorBody/Fields"]
+custom_minimum_size = Vector2(0, 24)
+layout_mode = 2
+size_flags_vertical = 0
+text = "FIELD_DAY_JOB"
+vertical_alignment = 1
+
+[node name="JobCell" type="HBoxContainer" parent="Margin/Layout/Body/EditorPanel/EditorColumn/EditorBody/Fields"]
+layout_mode = 2
+theme_override_constants/separation = 24
+
+[node name="JobIncome" type="Label" parent="Margin/Layout/Body/EditorPanel/EditorColumn/EditorBody/Fields/JobCell"]
+unique_name_in_owner = true
+auto_translate_mode = 2
+layout_mode = 2
+theme_type_variation = &"WarningLabel"
+
+[node name="JobHours" type="Label" parent="Margin/Layout/Body/EditorPanel/EditorColumn/EditorBody/Fields/JobCell"]
+unique_name_in_owner = true
+auto_translate_mode = 2
+layout_mode = 2
+theme_type_variation = &"DimLabel"
+
+[node name="SkinLabel" type="Label" parent="Margin/Layout/Body/EditorPanel/EditorColumn/EditorBody/Fields"]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+size_flags_vertical = 0
+text = "FIELD_SKIN"
+vertical_alignment = 1
+
+[node name="SkinSwatches" type="HBoxContainer" parent="Margin/Layout/Body/EditorPanel/EditorColumn/EditorBody/Fields"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_constants/separation = 8
+
+[node name="HairStyleLabel" type="Label" parent="Margin/Layout/Body/EditorPanel/EditorColumn/EditorBody/Fields"]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+size_flags_vertical = 0
+text = "FIELD_HAIR_STYLE"
+vertical_alignment = 1
+
+[node name="HairStyleRow" type="HBoxContainer" parent="Margin/Layout/Body/EditorPanel/EditorColumn/EditorBody/Fields"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="HairPrevButton" type="Button" parent="Margin/Layout/Body/EditorPanel/EditorColumn/EditorBody/Fields/HairStyleRow"]
+unique_name_in_owner = true
+auto_translate_mode = 2
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+text = "‹"
+
+[node name="HairStyleValue" type="Label" parent="Margin/Layout/Body/EditorPanel/EditorColumn/EditorBody/Fields/HairStyleRow"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(140, 0)
+layout_mode = 2
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HairNextButton" type="Button" parent="Margin/Layout/Body/EditorPanel/EditorColumn/EditorBody/Fields/HairStyleRow"]
+unique_name_in_owner = true
+auto_translate_mode = 2
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+text = "›"
+
+[node name="HairColorLabel" type="Label" parent="Margin/Layout/Body/EditorPanel/EditorColumn/EditorBody/Fields"]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+size_flags_vertical = 0
+text = "FIELD_HAIR_COLOR"
+vertical_alignment = 1
+
+[node name="HairSwatches" type="HBoxContainer" parent="Margin/Layout/Body/EditorPanel/EditorColumn/EditorBody/Fields"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_constants/separation = 8
+
+[node name="ShirtLabel" type="Label" parent="Margin/Layout/Body/EditorPanel/EditorColumn/EditorBody/Fields"]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+size_flags_vertical = 0
+text = "FIELD_SHIRT"
+vertical_alignment = 1
+
+[node name="ShirtSwatches" type="HBoxContainer" parent="Margin/Layout/Body/EditorPanel/EditorColumn/EditorBody/Fields"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_constants/separation = 8
+
+[node name="Footer" type="HBoxContainer" parent="Margin/Layout"]
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="SkipButton" type="Button" parent="Margin/Layout/Footer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 48)
+layout_mode = 2
+text = "FOUNDERS_SKIP"
+
+[node name="NameError" type="Label" parent="Margin/Layout/Footer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme_type_variation = &"ErrorLabel"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="BackButton" type="Button" parent="Margin/Layout/Footer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(160, 48)
+layout_mode = 2
+text = "MENU_BACK"
+
+[node name="StartButton" type="Button" parent="Margin/Layout/Footer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(220, 48)
+layout_mode = 2
+theme_type_variation = &"AccentButton"
+text = "NEW_GAME_START"
+
+[node name="IntroPage" type="CenterContainer" parent="."]
+unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -42,28 +458,158 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Window" type="PanelContainer" parent="Center"]
-custom_minimum_size = Vector2(640, 0)
+[node name="Window" type="PanelContainer" parent="IntroPage"]
+custom_minimum_size = Vector2(820, 0)
 layout_mode = 2
 theme_type_variation = &"DialogPanel"
 
-[node name="Column" type="VBoxContainer" parent="Center/Window"]
+[node name="Column" type="VBoxContainer" parent="IntroPage/Window"]
 layout_mode = 2
-theme_override_constants/separation = 20
+theme_override_constants/separation = 18
 
-[node name="Header" type="Label" parent="Center/Window/Column"]
+[node name="Step" type="Label" parent="IntroPage/Window/Column"]
+layout_mode = 2
+theme_type_variation = &"SectionLabel"
+theme_override_font_sizes/font_size = 12
+text = "WIZARD_NEW_GAME"
+
+[node name="Title" type="Label" parent="IntroPage/Window/Column"]
 layout_mode = 2
 theme_type_variation = &"HeaderLabel"
-text = "NEW_GAME_TITLE"
+theme_override_font_sizes/font_size = 40
+text = "INTRO_TITLE"
 
-[node name="Body" type="Label" parent="Center/Window/Column"]
+[node name="Body" type="Label" parent="IntroPage/Window/Column"]
+custom_minimum_size = Vector2(740, 0)
 layout_mode = 2
-text = "NEW_GAME_STUB"
+text = "INTRO_BODY"
 autowrap_mode = 3
 
-[node name="BackButton" type="Button" parent="Center/Window/Column"]
-unique_name_in_owner = true
-custom_minimum_size = Vector2(160, 0)
+[node name="Highlight" type="Label" parent="IntroPage/Window/Column"]
+custom_minimum_size = Vector2(740, 0)
 layout_mode = 2
-size_flags_horizontal = 8
+theme_type_variation = &"WarningLabel"
+theme_override_font_sizes/font_size = 18
+text = "INTRO_HIGHLIGHT"
+autowrap_mode = 3
+
+[node name="Buttons" type="HBoxContainer" parent="IntroPage/Window/Column"]
+layout_mode = 2
+theme_override_constants/separation = 14
+
+[node name="IntroBack" type="Button" parent="IntroPage/Window/Column/Buttons"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(140, 56)
+layout_mode = 2
 text = "MENU_BACK"
+
+[node name="IntroNext" type="Button" parent="IntroPage/Window/Column/Buttons"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 56)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_type_variation = &"AccentButton"
+theme_override_font_sizes/font_size = 22
+text = "WIZARD_NEXT"
+alignment = 0
+
+[node name="TeamPage" type="CenterContainer" parent="."]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Window" type="PanelContainer" parent="TeamPage"]
+custom_minimum_size = Vector2(820, 0)
+layout_mode = 2
+theme_type_variation = &"DialogPanel"
+
+[node name="Column" type="VBoxContainer" parent="TeamPage/Window"]
+layout_mode = 2
+theme_override_constants/separation = 14
+
+[node name="Step" type="Label" parent="TeamPage/Window/Column"]
+layout_mode = 2
+theme_type_variation = &"SectionLabel"
+theme_override_font_sizes/font_size = 12
+text = "WIZARD_NEW_GAME"
+
+[node name="Title" type="Label" parent="TeamPage/Window/Column"]
+layout_mode = 2
+theme_type_variation = &"HeaderLabel"
+theme_override_font_sizes/font_size = 36
+text = "TEAM_STEP_TITLE"
+
+[node name="NameCaption" type="Label" parent="TeamPage/Window/Column"]
+layout_mode = 2
+theme_type_variation = &"SectionLabel"
+theme_override_font_sizes/font_size = 12
+text = "TEAM_NAME"
+
+[node name="TeamNameEdit" type="LineEdit" parent="TeamPage/Window/Column"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 52)
+layout_mode = 2
+theme_override_font_sizes/font_size = 22
+placeholder_text = "TEAM_NAME_PLACEHOLDER"
+
+[node name="EmblemCaption" type="Label" parent="TeamPage/Window/Column"]
+layout_mode = 2
+theme_type_variation = &"SectionLabel"
+theme_override_font_sizes/font_size = 12
+text = "TEAM_EMBLEM"
+
+[node name="EmblemGrid" type="GridContainer" parent="TeamPage/Window/Column"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/h_separation = 8
+theme_override_constants/v_separation = 8
+columns = 6
+
+[node name="ColorCaption" type="Label" parent="TeamPage/Window/Column"]
+layout_mode = 2
+theme_type_variation = &"SectionLabel"
+theme_override_font_sizes/font_size = 12
+text = "TEAM_COLOR"
+
+[node name="ColorRow" type="HBoxContainer" parent="TeamPage/Window/Column"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="Gap" type="Control" parent="TeamPage/Window/Column"]
+custom_minimum_size = Vector2(0, 6)
+layout_mode = 2
+
+[node name="Buttons" type="HBoxContainer" parent="TeamPage/Window/Column"]
+layout_mode = 2
+theme_override_constants/separation = 14
+
+[node name="TeamBack" type="Button" parent="TeamPage/Window/Column/Buttons"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(140, 56)
+layout_mode = 2
+text = "MENU_BACK"
+
+[node name="TeamNext" type="Button" parent="TeamPage/Window/Column/Buttons"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 56)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_type_variation = &"AccentButton"
+theme_override_font_sizes/font_size = 22
+text = "WIZARD_NEXT"
+alignment = 0
+
+[node name="LeaveDialog" parent="." instance=ExtResource("4_dialog")]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+title_key = "LEAVE_TITLE"
+body_key = "LEAVE_BODY"
+confirm_key = "LEAVE_CONFIRM"
+cancel_key = "LEAVE_STAY"

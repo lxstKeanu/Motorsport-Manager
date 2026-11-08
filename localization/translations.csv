@@ -3,12 +3,12 @@ GAME_TITLE,GARAGE RACING,GARAGE RACING
 MENU_TAGLINE,FROM A GARAGE TO THE GRID,ИЗ ГАРАЖА — НА СТАРТ
 MENU_CONTINUE,CONTINUE,ПРОДОЛЖИТЬ
 MENU_CONTINUE_EMPTY,No saved games yet,Сохранений пока нет
-MENU_NEW_GAME,NEW GAME,НОВАЯ ИГРА
-MENU_SETTINGS,SETTINGS,НАСТРОЙКИ
-MENU_QUIT,QUIT,ВЫХОД
+MENU_NEW_GAME,New game,Новая игра
+MENU_SETTINGS,Settings,Настройки
+MENU_QUIT,Quit,Выход
 MENU_BACK,Back,Назад
 MENU_VERSION,Prototype %s · working title,Прототип %s · рабочее название
-SETTINGS_TITLE,Settings,Настройки
+SETTINGS_TITLE,SETTINGS,НАСТРОЙКИ
 SETTINGS_LANGUAGE,Language,Язык
 SETTINGS_FULLSCREEN,Fullscreen,Полный экран
 SETTINGS_VOLUME_MASTER,Master volume,Общая громкость
@@ -16,9 +16,248 @@ SETTINGS_VOLUME_MUSIC,Music,Музыка
 SETTINGS_VOLUME_SFX,Sound effects,Звуки
 SETTINGS_AUTOSAVE_HINT,Changes are applied and saved automatically.,Изменения применяются и сохраняются сразу.
 NEW_GAME_TITLE,New team,Новая команда
-NEW_GAME_STUB,"Next step: creating your character and helpers — name, role and appearance.","Следующий шаг — создание персонажа и помощников: имя, роль и внешность."
+NEW_GAME_SUBTITLE,Up to four founders: friends or family chipping in their spare cash. Founders take no pay from the team; their day jobs keep the lights on.,"До четырёх основателей: друзья или родня, которые вкладывают свои деньги. Зарплату в команде основатели не берут, деньги приносит их основная работа."
+NEW_GAME_START,Start,Начать
+TEAM_LIST_TITLE,TEAM,КОМАНДА
+TEAM_HERO,Founder 1 · you,Основатель 1 · вы
+TEAM_YOU,YOU,ВЫ
+TEAM_UNNAMED,No name,Без имени
+TEAM_DIFFICULTY,DIFFICULTY,СЛОЖНОСТЬ
+TEAM_DIFFICULTY_NOTE,Any founder may later ask to quit the day job and get paid by the team.,Со временем любой основатель может захотеть уйти с основной работы и получать зарплату в команде.
+DIFFICULTY_1,Hard,Сложно
+DIFFICULTY_2,Tough,Непросто
+DIFFICULTY_3,Balanced,Сбалансированно
+TEAM_WARN_NO_MECHANIC,No mechanic in the team: nobody can repair the sedan.,В команде нет механика: чинить седан некому.
+TEAM_WARN_NO_DRIVER,No driver in the team: nobody can take the sedan to a race.,В команде нет гонщика: на гонку седан везти не с кем.
+TEAM_ERROR_NAME_EMPTY,Every team member needs a name.,Каждому в команде нужно имя.
+TEAM_ERROR_NAME_DUPLICATE,Names must not repeat.,Имена не должны повторяться.
+FIELD_NAME,Name,Имя
+FIELD_NAME_PLACEHOLDER,Enter a name,Введите имя
+FIELD_ROLE,Role,Роль
+FIELD_SKIN,Skin tone,Тон кожи
+FIELD_HAIR_STYLE,Hairstyle,Причёска
+FIELD_HAIR_COLOR,Hair colour,Цвет волос
+FIELD_SHIRT,Clothes,Одежда
+HAIR_SHORT,Short,Короткая
+HAIR_LONG,Long,Длинная
+HAIR_CURLY,Curly,Кудри
+HAIR_BALD,No hair,Без волос
+HAIR_CAP,Cap,Кепка
+LEAVE_TITLE,Back to the menu?,Выйти в меню?
+LEAVE_BODY,The team you have set up will not be saved.,Собранная команда не сохранится.
+LEAVE_CONFIRM,Leave,Выйти
+LEAVE_STAY,Keep editing,Остаться
+ROLE_DRIVER,Driver,Гонщик
+ROLE_MECHANIC,Mechanic,Механик
+ROLE_DRIVER_HINT,Only drives: races and test runs. Doesn't repair or carry.,Только водит: гонки и тест-заезды. Не чинит и не носит.
+ROLE_MECHANIC_HINT,"Repairs and assembles the car, fits and removes parts, carries them around. The day job runs long, so the garage gets the late evenings.","Чинит и собирает машину, снимает и ставит детали, носит их. Основная работа длинная, поэтому в гараж приходит поздно вечером."
+GARAGE_TITLE,Garage,Гараж
+GARAGE_LEAVE_BODY,The game is not saved yet: saving comes in a later version.,Игра пока не сохраняется: сохранения появятся в следующих версиях.
+GARAGE_STAY,Keep playing,Продолжить игру
+HUD_MONEY,MONEY,ДЕНЬГИ
+HUD_MENU,Menu,Меню
+HUD_CONTROLS_HINT,WASD / arrows — move · right mouse — drag · wheel or +/− — zoom · Space — pause · 1–4 — speed,WASD / стрелки — движение · правая кнопка мыши — перетащить · колесо или +/− — масштаб · Пробел — пауза · 1–4 — скорость
+CLOCK_DAY,%s · Day %d,%s · день %d
+DAY_MON,Mon,Пн
+DAY_TUE,Tue,Вт
+DAY_WED,Wed,Ср
+DAY_THU,Thu,Чт
+DAY_FRI,Fri,Пт
+DAY_SAT,Sat,Сб
+DAY_SUN,Sun,Вс
+SPEED_PAUSE,Pause (Space),Пауза (Пробел)
+SPEED_N,Speed ×%d (key %d),Скорость ×%d (клавиша %d)
+PHASE_SLEEP,Night: everyone is asleep until 8:00,Ночь: все спят до 8:00
+PHASE_DAY_JOB,Weekday: founders are at their day jobs,Будний день: основатели на основной работе
+PHASE_WEEKEND_MORNING,Day off: the team comes to the garage at 10:00,Выходной: команда придёт в гараж к 10:00
+PHASE_EVENING_GARAGE,Weekday evening: after work everyone comes to the garage until midnight,Вечер буднего дня: после работы все идут в гараж до полуночи
+PHASE_WEEKEND_GARAGE,Day off: the team is in the garage until midnight,Выходной: команда в гараже до полуночи
+JOB_HAS,"Day job: {income} a week, {start}–{end}","Основная работа: {income} в неделю, {start}–{end}"
+JOB_NONE,No day job: in the garage all day,Без основной работы: в гараже весь день
+QUIT_JOB_BUTTON,Quit job,Уволиться
+QUIT_JOB_TITLE,Quit the day job?,Уволиться с основной работы?
+QUIT_JOB_BODY,"{name} will work in the garage all day, but the {income} a week from the day job stops. There is no going back.","{name} будет работать в гараже весь день, но доход с основной работы, {income} в неделю, пропадёт. Вернуться на работу нельзя."
+QUIT_JOB_CONFIRM,Quit,Уволиться
+QUIT_JOB_CANCEL,Keep the job,Остаться на работе
+TOAST_SALARY,Weekly pay from day jobs: +%s,Зарплаты за неделю: +%s
+TERRAIN_GRASS,Grass,Трава
+TERRAIN_ASPHALT,Asphalt,Асфальт
+TERRAIN_FLOOR,Concrete floor,Бетонный пол
+TERRAIN_WALL,Wall,Стена
+TERRAIN_GATE,Garage door,Ворота
+TERRAIN_PAVEMENT,Pavement,Тротуар
+TERRAIN_DIRT,Bare ground,Голая земля
+PARCEL_BOX,Garage %d,Бокс №%d
+PARCEL_OWN_YARD,Your yard,Ваш двор
+PARCEL_FOR_SALE_SIGN,FOR SALE,ПРОДАЁТСЯ
 BP_ENGINE,ENGINE · 1.6 L · 4 CYL,ДВИГАТЕЛЬ · 1.6 Л · 4 ЦИЛ
 BP_BRAKES,BRAKES · DISC / DRUM,ТОРМОЗА · ДИСК / БАРАБАН
 BP_TITLE,OLD SEDAN,СТАРЫЙ СЕДАН
 BP_STATUS,STATUS: NON-RUNNER,СОСТОЯНИЕ: НЕ НА ХОДУ
 BP_SHEET,SHEET 1/1 · SCALE 1:10 · MM,ЛИСТ 1/1 · МАСШТАБ 1:10 · ММ
+TASKS_TITLE,TASKS,ЗАДАЧИ
+TASKS_EMPTY,No tasks,Задач нет
+TASK_CLEAR_JUNK,Clear out junk,Вынести хлам
+TASK_CLEAR_YARD,Clear the yard,Расчистить двор
+TASK_NEEDS_DRIVER,Needs a driver,Нужен гонщик
+TASK_NEEDS_MECHANIC,Needs a mechanic,Нужен механик
+TASK_PAUSED,Paused,На паузе
+TASK_WAITING,Waiting for someone,Ждёт исполнителя
+TASK_WORKING,{name} is working,{name}: работает
+TASK_ON_THE_WAY,{name} is on the way,{name}: идёт
+TASK_UP,Higher in the queue,Выше в очереди
+TASK_DOWN,Lower in the queue,Ниже в очереди
+TASK_PAUSE,Pause the task,Поставить задачу на паузу
+TOAST_TASK_DONE,{name}: done — {task},{name}: готово — {task}
+TEAM_FOUNDER_N,Founder %d,Основатель %d
+TEAM_ADD_FOUNDER,+ Add a founder  %d / %d,+ Добавить основателя  %d / %d
+TEAM_REMOVE_FOUNDER,Remove,Убрать
+FOUNDER_SKILL,SKILL,НАВЫК
+FOUNDER_POTENTIAL,POTENTIAL,ПОТЕНЦИАЛ
+FOUNDER_SHUFFLE,Shuffle,Случайно
+FIELD_AGE,Age,Возраст
+FIELD_DAY_JOB,Day job,Основная работа
+JOB_INCOME_WEEK,%s / week,%s в неделю
+JOB_HOURS,"%s–%s, Mon–Fri","%s–%s, пн–пт"
+DIFFICULTY_EASY_END,EASY,ЛЕГКО
+DIFFICULTY_HARD_END,HARDCORE,ХАРДКОР
+DIFFICULTY_4,Easy start,Лёгкий старт
+DIFFICULTY_1_HINT,One pay cheque and one pair of hands. Every step is slow.,Одна зарплата и одни руки. Каждый шаг даётся медленно.
+DIFFICULTY_2_HINT,"Two can share the work, but money is still tight.","Вдвоём уже можно делить работу, но денег всё ещё мало."
+DIFFICULTY_3_HINT,A few pay cheques and hands: a steady pace.,Несколько зарплат и пар рук: ровный темп.
+DIFFICULTY_4_HINT,A full crew of founders: the garage gets going quickly.,Полный состав основателей: дело в гараже идёт быстро.
+ROLE_DESIGNER,Designer,Конструктор
+ROLE_EXECUTIVE,Executive,Менеджер
+ROLE_DESIGNER_HINT,"Inspects and tests parts, reveals their hidden stats, sets up the car; later designs new parts. Doesn't repair or drive.","Осматривает и испытывает детали, раскрывает их скрытые параметры, настраивает машину, позже проектирует новые. Не чинит и не водит."
+ROLE_EXECUTIVE_HINT,"Finds sponsors, signs contracts, enters series, runs the money. Doesn't touch the car.","Ищет спонсоров, заключает контракты, записывает команду в серии, ведёт деньги. К машине не подходит."
+TASK_NEEDS_DESIGNER,Needs a designer,Нужен конструктор
+TASK_NEEDS_EXECUTIVE,Needs an executive,Нужен менеджер
+STATUS_SLEEP,{name}: asleep,{name}: спит
+STATUS_AT_JOB,{name}: at the day job until {time},{name}: на работе до {time}
+STATUS_HOME,{name}: at home,{name}: дома
+STATUS_IN_GARAGE,{name}: in the garage,{name}: в гараже
+SPEED_SKIP_LABEL,» day,» день
+SPEED_SKIP,Skip to the next morning (key 4),Перемотать до утра (клавиша 4)
+MENU_LAST_SAVE,LAST SAVE,ПОСЛЕДНЕЕ СОХРАНЕНИЕ
+MENU_NEW_GAME_NOTE,BUILD YOUR TEAM,СОБРАТЬ КОМАНДУ
+MENU_TUTORIAL,Tutorial,Обучение
+MENU_SCENARIOS,Scenarios,Сценарии
+MENU_LOAD,Load game,Загрузить
+MENU_SOON,COMING LATER,ПОЗЖЕ
+MENU_NO_SAVES,NO SAVES,НЕТ СОХРАНЕНИЙ
+MENU_CREDITS,Credits,Титры
+CREDITS_BODY,"Garage Racing (working title). Made with Godot Engine 4.7. Fonts: Oswald and Inter, SIL Open Font License 1.1.","Garage Racing (рабочее название). Сделано на Godot Engine 4.7. Шрифты: Oswald и Inter, лицензия SIL Open Font License 1.1."
+SETTINGS_TAB_DISPLAY,Display,Экран
+SETTINGS_TAB_SOUND,Sound,Звук
+SETTINGS_TAB_VIEW,View,Вид
+SETTINGS_CURRENCY,Currency,Валюта
+SETTINGS_CURRENCY_HINT,Only the sign changes: prices and balances stay the same.,Меняется только значок: цены и деньги остаются теми же.
+CURRENCY_USD,Dollars ($),Доллары ($)
+CURRENCY_EUR,Euros (€),Евро (€)
+CURRENCY_GBP,Pounds (£),Фунты (£)
+CURRENCY_RUB,Roubles (₽),Рубли (₽)
+SETTINGS_WINDOW,Window,Окно
+SETTINGS_WINDOW_HINT,F11 switches fullscreen at any time. The window size and position are remembered between sessions.,F11 переключает полный экран в любой момент. Размер и положение окна запоминаются между запусками.
+SETTINGS_WINDOWED,Windowed,В окне
+SETTINGS_FPS,Frame rate,Частота кадров
+SETTINGS_FPS_HINT,A lower frame rate saves power and keeps the fans quiet; 60 is plenty for the garage.,Меньше кадров — меньше нагрузка и шум вентиляторов; для гаража 60 вполне хватает.
+FPS_30,30 fps,30 кадров
+FPS_60,60 fps,60 кадров
+FPS_UNCAPPED,Uncapped,Без ограничения
+SETTINGS_UI_SCALE,Interface scale,Масштаб интерфейса
+SETTINGS_UI_SCALE_HINT,Auto fits panels and menus to the window. The garage map keeps its own zoom.,«Авто» подгоняет панели и меню под окно. Карта гаража не меняется.
+UI_SCALE_AUTO,Auto,Авто
+UI_SCALE_SMALL,Small,Мелкий
+UI_SCALE_MEDIUM,Medium,Средний
+UI_SCALE_LARGE,Large,Крупный
+SETTINGS_TEXT_SIZE,Text size,Размер текста
+SETTINGS_TEXT_SIZE_HINT,Makes text larger on its own. Panels may scroll to fit it.,"Увеличивает только текст. Панели могут прокручиваться, чтобы он поместился."
+SETTINGS_MUTE,Mute all sound,Выключить весь звук
+SETTINGS_VIEW_MODE,View,Вид
+SETTINGS_VIEW_MODE_HINT,"Top-down draws everything straight from above. Standard raises buildings, walls and equipment. 2.5D raises everything.","«Сверху» — всё строго сверху. «Стандарт» — объёмные здания, стены и оборудование. «2.5D» — объёмно всё."
+VIEW_TOP_DOWN,Top-down,Сверху
+VIEW_STANDARD,Standard,Стандарт
+VIEW_FULL,2.5D,2.5D
+SETTINGS_LAYERS,Layers,Слои
+SETTINGS_LAYERS_HINT,Pick what is drawn in 2.5D. People are always 2.5D.,Что рисовать в 2.5D. Люди всегда в 2.5D.
+LAYER_WALLS,2.5D buildings and walls,2.5D здания и стены
+LAYER_WALLS_HINT,"Walls, gates, roofs and fences in relief.","Стены, ворота, крыши и заборы в объёме."
+LAYER_VEHICLES,2.5D cars,2.5D машины
+LAYER_VEHICLES_HINT,Cars with a raised body and roof.,Машины с поднятым кузовом и крышей.
+LAYER_MISC,"2.5D trees, lamps and clutter","2.5D деревья, фонари и мелочи"
+LAYER_MISC_HINT,"Trees, street lamps, signs and rubble.","Деревья, фонари, таблички и завалы."
+MENU_ENTER,ENTER,ENTER
+LAYER_EQUIPMENT,2.5D equipment,2.5D оборудование
+LAYER_EQUIPMENT_HINT,"Machines, benches, racks and storage. For now: crates and tyre stacks in the garage.","Станки, верстаки, стеллажи и хранение. Пока это ящики и стопки покрышек в боксе."
+WIZARD_NEW_GAME,NEW GAME,НОВАЯ ИГРА
+WIZARD_NEXT,NEXT,ДАЛЕЕ
+INTRO_TITLE,"A GARAGE, A SEDAN AND A DREAM","ГАРАЖ, СЕДАН И МЕЧТА"
+INTRO_BODY,"By day — an ordinary job. By night — a rented garage at the edge of an industrial estate and an old sedan that has not started in years. You and your friends pool what little money you have, so that one day you can line up on a starting grid.","Днём — обычная работа. Вечером — съёмный гараж на краю промзоны и старый седан, который не заводился уже несколько лет. Вы с друзьями складываете последние деньги, чтобы однажды встать на стартовую решётку."
+INTRO_HIGHLIGHT,The first race comes when the sedan drives again. We start today.,Первая гонка — когда седан снова поедет. Начинаем сегодня.
+TEAM_STEP_TITLE,WHAT DO WE CALL THE TEAM?,КАК НАЗОВЁМ КОМАНДУ?
+TEAM_NAME,TEAM NAME,НАЗВАНИЕ КОМАНДЫ
+TEAM_NAME_PLACEHOLDER,For example: Night Shift Racing,Например: Ночная смена
+TEAM_EMBLEM,EMBLEM,ЭМБЛЕМА
+TEAM_COLOR,TEAM COLOUR,ЦВЕТ КОМАНДЫ
+FOUNDERS_SKIP,Skip — start with the default team,Пропустить — начать со стандартной командой
+DEFAULT_FOUNDER_1,Alex,Лёша
+DEFAULT_FOUNDER_2,Sam,Саша
+DEFAULT_TEAM_NAME,Night Shift Racing,Ночная смена
+TEAM_DEFAULT_NAME,{name} Racing,{name} Racing
+HUD_YEAR,YEAR %d,ГОД %d
+HUD_OPEN_UNTIL,Open until %s,Открыто до %s
+HUD_CLOSED_UNTIL,Closed · opens at %s,Закрыто · откроется в %s
+HUD_CLOSED,Closed,Закрыто
+HUD_OVERTIME,OVERTIME,СВЕРХУРОЧНЫЕ
+HUD_OVERTIME_HINT,The team stays in the garage until 02:00,Команда остаётся в гараже до 02:00
+HUD_INBOUND,INBOUND,ПОСТАВКИ
+HUD_INBOUND_NONE,nothing on the way,в пути ничего нет
+OBJ_TITLE,WHERE TO START,С ЧЕГО НАЧАТЬ
+OBJ_HIDE,Hide,Скрыть
+OBJ_CLEAR_JUNK,Clear the junk out of the garage,Вынести хлам из бокса
+OBJ_CLEAR_YARD,Clear the yard,Расчистить двор
+OBJ_FIX_SEDAN,Get the sedan running,Поставить седан на ход
+OBJ_ENTER_SERIES,Enter a racing series,Записаться в гоночную серию
+SECTION_SERIES,Series,Серии
+SECTION_SPONSORS,Sponsors,Спонсоры
+SECTION_SUPPLIERS,Suppliers,Поставщики
+SECTION_FLEET,Fleet,Транспорт
+SECTION_CARS,Cars,Машины
+SECTION_PARTS,Parts,Детали
+SECTION_STAFF,Staff,Персонал
+SECTION_DESIGN,Design,Проекты
+SECTION_WORKS,Works,Работы
+SECTION_PRODUCTION,Production,Цех
+SECTION_MONEY,Money,Деньги
+SECTION_COMPANY,Company,Команда
+SECTION_TESTING,Testing,Тесты
+SECTION_ANALYSIS,Analysis,Анализ
+SECTION_BUILD,Build,Строить
+SECTION_SOON,The {section} section comes {when}.,Раздел «{section}» появится {when}.
+STAGE_5,"at stage 5, with the car and its parts","на этапе 5, вместе с машиной и деталями"
+STAGE_6,"at stage 6, with storage and deliveries","на этапе 6, вместе со складом и поставками"
+STAGE_7,"at stage 7, with building and buying land","на этапе 7, вместе со стройкой и покупкой участков"
+STAGE_8,"at stage 8, with the race weekend","на этапе 8, вместе с гоночным уикендом"
+STAGE_LATER,after the prototype,после прототипа
+MONEY_BALANCE,BALANCE,НА СЧЁТЕ
+MONEY_WEEKLY_INCOME,Day jobs bring in %s a week.,Основные работы приносят %s в неделю.
+MONEY_NEXT_PAY,It arrives every Friday at 18:00.,Деньги приходят каждую пятницу в 18:00.
+MONEY_NO_INCOME,Nobody has a day job any more: money only comes from racing and sponsors.,Основной работы больше ни у кого нет: деньги дадут только гонки и спонсоры.
+MONTH_JAN,Jan,янв
+MONTH_FEB,Feb,фев
+MONTH_MAR,Mar,мар
+MONTH_APR,Apr,апр
+MONTH_MAY,May,мая
+MONTH_JUN,Jun,июн
+MONTH_JUL,Jul,июл
+MONTH_AUG,Aug,авг
+MONTH_SEP,Sep,сен
+MONTH_OCT,Oct,окт
+MONTH_NOV,Nov,ноя
+MONTH_DEC,Dec,дек
+TERRAIN_FIELD,Field,Поле
+TERRAIN_HEDGE,Hedgerow,Лесополоса
+TERRAIN_YARD,Gravel yard,Гравийный двор
+PARCEL_FIELD,Field %d,Поле №%d
+PARCEL_HOUSE,House %d,Дом №%d
+PARCEL_UNIT,Unit %d,Корпус №%d

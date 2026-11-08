@@ -27,6 +27,8 @@ const AXLE_X := 148.0
 @export var car_scale := 1.45
 ## Ширина затемнения слева в долях экрана, чтобы читалось меню. 0 — без затемнения.
 @export_range(0.0, 1.0) var left_shade := 0.55
+## Штамп в правом нижнем углу. На экранах с кнопками внизу его лучше прятать.
+@export var title_block := true
 @export var animate := true
 
 var _time := 0.0
@@ -59,7 +61,8 @@ func _draw() -> void:
 	_draw_dimensions()
 	_draw_callout(Vector2(150.0, -24.0), Vector2(204.0, -178.0), tr("BP_ENGINE"))
 	_draw_callout(Vector2(AXLE_X, 86.0), Vector2(214.0, 182.0), tr("BP_BRAKES"))
-	_draw_title_block()
+	if title_block:
+		_draw_title_block()
 	if left_shade > 0.0:
 		_draw_left_shade()
 

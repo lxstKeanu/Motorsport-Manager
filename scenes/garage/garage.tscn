@@ -1,0 +1,490 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://scenes/garage/garage.gd" id="1_garage"]
+[ext_resource type="Script" path="res://scenes/garage/garage_map.gd" id="2_map"]
+[ext_resource type="Script" path="res://scenes/garage/sedan_top.gd" id="3_sedan"]
+[ext_resource type="Script" path="res://scenes/garage/garage_camera.gd" id="5_camera"]
+[ext_resource type="PackedScene" path="res://scenes/ui/confirm_dialog.tscn" id="6_dialog"]
+
+[node name="Garage" type="Node2D"]
+script = ExtResource("1_garage")
+
+[node name="Map" type="Node2D" parent="."]
+unique_name_in_owner = true
+script = ExtResource("2_map")
+
+[node name="Actors" type="Node2D" parent="."]
+unique_name_in_owner = true
+y_sort_enabled = true
+
+[node name="Sedan" type="Node2D" parent="Actors"]
+unique_name_in_owner = true
+script = ExtResource("3_sedan")
+
+[node name="Camera" type="Camera2D" parent="."]
+unique_name_in_owner = true
+script = ExtResource("5_camera")
+
+[node name="Hud" type="CanvasLayer" parent="."]
+
+[node name="Root" type="Control" parent="Hud"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="TopBar" type="PanelContainer" parent="Hud/Root"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 60.0
+grow_horizontal = 2
+theme_type_variation = &"HudBar"
+
+[node name="Row" type="HBoxContainer" parent="Hud/Root/TopBar"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/separation = 22
+
+[node name="Identity" type="HBoxContainer" parent="Hud/Root/TopBar/Row"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/separation = 12
+
+[node name="Emblem" type="TextureRect" parent="Hud/Root/TopBar/Row/Identity"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(34, 34)
+layout_mode = 2
+size_flags_vertical = 4
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Names" type="VBoxContainer" parent="Hud/Root/TopBar/Row/Identity"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/separation = -2
+alignment = 1
+
+[node name="TeamName" type="Label" parent="Hud/Root/TopBar/Row/Identity/Names"]
+unique_name_in_owner = true
+auto_translate_mode = 2
+layout_mode = 2
+theme_type_variation = &"HeaderLabel"
+theme_override_font_sizes/font_size = 22
+
+[node name="YearLabel" type="Label" parent="Hud/Root/TopBar/Row/Identity/Names"]
+unique_name_in_owner = true
+auto_translate_mode = 2
+layout_mode = 2
+theme_type_variation = &"SectionLabel"
+theme_override_font_sizes/font_size = 11
+
+[node name="Line1" type="ColorRect" parent="Hud/Root/TopBar/Row"]
+custom_minimum_size = Vector2(1, 0)
+layout_mode = 2
+mouse_filter = 2
+color = Color(1, 1, 1, 0.1)
+
+[node name="Clock" type="HBoxContainer" parent="Hud/Root/TopBar/Row"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/separation = 12
+
+[node name="TimeLabel" type="Label" parent="Hud/Root/TopBar/Row/Clock"]
+unique_name_in_owner = true
+auto_translate_mode = 2
+custom_minimum_size = Vector2(80, 0)
+layout_mode = 2
+size_flags_vertical = 4
+theme_type_variation = &"HeaderLabel"
+theme_override_font_sizes/font_size = 28
+
+[node name="DateLabel" type="Label" parent="Hud/Root/TopBar/Row/Clock"]
+unique_name_in_owner = true
+auto_translate_mode = 2
+custom_minimum_size = Vector2(96, 0)
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="Line2" type="ColorRect" parent="Hud/Root/TopBar/Row"]
+custom_minimum_size = Vector2(1, 0)
+layout_mode = 2
+mouse_filter = 2
+color = Color(1, 1, 1, 0.1)
+
+[node name="Status" type="HBoxContainer" parent="Hud/Root/TopBar/Row"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/separation = 10
+
+[node name="StatusDot" type="ColorRect" parent="Hud/Root/TopBar/Row/Status"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(9, 9)
+layout_mode = 2
+size_flags_vertical = 4
+mouse_filter = 2
+
+[node name="StatusLabel" type="Label" parent="Hud/Root/TopBar/Row/Status"]
+unique_name_in_owner = true
+auto_translate_mode = 2
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="OvertimeButton" type="Button" parent="Hud/Root/TopBar/Row/Status"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 4
+tooltip_text = "HUD_OVERTIME_HINT"
+focus_mode = 0
+theme_type_variation = &"ChipButton"
+toggle_mode = true
+text = "HUD_OVERTIME"
+
+[node name="Spacer" type="Control" parent="Hud/Root/TopBar/Row"]
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 2
+
+[node name="SpeedRow" type="HBoxContainer" parent="Hud/Root/TopBar/Row"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 4
+mouse_filter = 2
+theme_override_constants/separation = 2
+
+[node name="MenuButton" type="Button" parent="Hud/Root/TopBar/Row"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(110, 0)
+layout_mode = 2
+size_flags_vertical = 4
+focus_mode = 0
+text = "HUD_MENU"
+
+[node name="SubBar" type="PanelContainer" parent="Hud/Root"]
+unique_name_in_owner = true
+layout_mode = 1
+offset_top = 60.0
+offset_right = 560.0
+offset_bottom = 96.0
+theme_type_variation = &"HudSubBar"
+
+[node name="Row" type="HBoxContainer" parent="Hud/Root/SubBar"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/separation = 12
+
+[node name="MoneyCaption" type="Label" parent="Hud/Root/SubBar/Row"]
+layout_mode = 2
+theme_type_variation = &"SectionLabel"
+theme_override_font_sizes/font_size = 12
+text = "HUD_MONEY"
+vertical_alignment = 1
+
+[node name="MoneyLabel" type="Label" parent="Hud/Root/SubBar/Row"]
+unique_name_in_owner = true
+auto_translate_mode = 2
+custom_minimum_size = Vector2(110, 0)
+layout_mode = 2
+theme_type_variation = &"HeaderLabel"
+theme_override_font_sizes/font_size = 20
+vertical_alignment = 1
+
+[node name="InboundCaption" type="Label" parent="Hud/Root/SubBar/Row"]
+layout_mode = 2
+theme_type_variation = &"SectionLabel"
+theme_override_font_sizes/font_size = 12
+text = "HUD_INBOUND"
+vertical_alignment = 1
+
+[node name="InboundLabel" type="Label" parent="Hud/Root/SubBar/Row"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_type_variation = &"DimLabel"
+text = "HUD_INBOUND_NONE"
+vertical_alignment = 1
+
+[node name="ObjectivesPanel" type="PanelContainer" parent="Hud/Root"]
+unique_name_in_owner = true
+layout_mode = 1
+offset_left = 16.0
+offset_top = 112.0
+offset_right = 356.0
+offset_bottom = 152.0
+
+[node name="Column" type="VBoxContainer" parent="Hud/Root/ObjectivesPanel"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/separation = 10
+
+[node name="Header" type="HBoxContainer" parent="Hud/Root/ObjectivesPanel/Column"]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="Title" type="Label" parent="Hud/Root/ObjectivesPanel/Column/Header"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_type_variation = &"SectionLabel"
+text = "OBJ_TITLE"
+vertical_alignment = 1
+
+[node name="ObjectivesToggle" type="Button" parent="Hud/Root/ObjectivesPanel/Column/Header"]
+unique_name_in_owner = true
+auto_translate_mode = 2
+custom_minimum_size = Vector2(30, 28)
+layout_mode = 2
+focus_mode = 0
+theme_type_variation = &"ChipButton"
+text = "−"
+
+[node name="ObjectivesList" type="VBoxContainer" parent="Hud/Root/ObjectivesPanel/Column"]
+unique_name_in_owner = true
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/separation = 8
+
+[node name="ObjectivesHide" type="Button" parent="Hud/Root/ObjectivesPanel/Column"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 0
+focus_mode = 0
+theme_type_variation = &"ChipButton"
+text = "OBJ_HIDE"
+
+[node name="Sidebar" type="PanelContainer" parent="Hud/Root"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -88.0
+offset_top = 60.0
+grow_horizontal = 0
+grow_vertical = 1
+theme_type_variation = &"HudSidebar"
+
+[node name="Column" type="VBoxContainer" parent="Hud/Root/Sidebar"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/separation = 0
+
+[node name="SectionScroll" type="ScrollContainer" parent="Hud/Root/Sidebar/Column"]
+layout_mode = 2
+size_flags_vertical = 3
+horizontal_scroll_mode = 0
+
+[node name="SectionButtons" type="VBoxContainer" parent="Hud/Root/Sidebar/Column/SectionScroll"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 2
+theme_override_constants/separation = 0
+
+[node name="BuildButton" type="Button" parent="Hud/Root/Sidebar/Column"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+focus_mode = 0
+theme_type_variation = &"SideButton"
+toggle_mode = true
+text = "SECTION_BUILD"
+icon_alignment = 1
+vertical_icon_alignment = 0
+
+[node name="SectionPanel" type="PanelContainer" parent="Hud/Root"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -528.0
+offset_top = 68.0
+offset_right = -96.0
+offset_bottom = -16.0
+grow_horizontal = 0
+grow_vertical = 2
+theme_type_variation = &"DialogPanel"
+
+[node name="Column" type="VBoxContainer" parent="Hud/Root/SectionPanel"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/separation = 16
+
+[node name="Header" type="HBoxContainer" parent="Hud/Root/SectionPanel/Column"]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="SectionTitle" type="Label" parent="Hud/Root/SectionPanel/Column/Header"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme_type_variation = &"HeaderLabel"
+theme_override_font_sizes/font_size = 26
+
+[node name="SectionClose" type="Button" parent="Hud/Root/SectionPanel/Column/Header"]
+unique_name_in_owner = true
+auto_translate_mode = 2
+custom_minimum_size = Vector2(36, 36)
+layout_mode = 2
+size_flags_vertical = 4
+focus_mode = 0
+theme_type_variation = &"ChipButton"
+text = "×"
+
+[node name="WorksPage" type="ScrollContainer" parent="Hud/Root/SectionPanel/Column"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+horizontal_scroll_mode = 0
+
+[node name="Column" type="VBoxContainer" parent="Hud/Root/SectionPanel/Column/WorksPage"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 12
+
+[node name="TaskList" type="VBoxContainer" parent="Hud/Root/SectionPanel/Column/WorksPage/Column"]
+unique_name_in_owner = true
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/separation = 14
+
+[node name="TasksEmpty" type="Label" parent="Hud/Root/SectionPanel/Column/WorksPage/Column"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_type_variation = &"DimLabel"
+text = "TASKS_EMPTY"
+
+[node name="StaffPage" type="ScrollContainer" parent="Hud/Root/SectionPanel/Column"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+size_flags_vertical = 3
+horizontal_scroll_mode = 0
+
+[node name="Column" type="VBoxContainer" parent="Hud/Root/SectionPanel/Column/StaffPage"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 14
+
+[node name="PhaseLabel" type="Label" parent="Hud/Root/SectionPanel/Column/StaffPage/Column"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(380, 0)
+layout_mode = 2
+autowrap_mode = 3
+
+[node name="FounderList" type="VBoxContainer" parent="Hud/Root/SectionPanel/Column/StaffPage/Column"]
+unique_name_in_owner = true
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/separation = 14
+
+[node name="MoneyPage" type="VBoxContainer" parent="Hud/Root/SectionPanel/Column"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 10
+
+[node name="BalanceCaption" type="Label" parent="Hud/Root/SectionPanel/Column/MoneyPage"]
+layout_mode = 2
+theme_type_variation = &"SectionLabel"
+text = "MONEY_BALANCE"
+
+[node name="BalanceLabel" type="Label" parent="Hud/Root/SectionPanel/Column/MoneyPage"]
+unique_name_in_owner = true
+auto_translate_mode = 2
+layout_mode = 2
+theme_type_variation = &"HeaderLabel"
+
+[node name="IncomeLabel" type="Label" parent="Hud/Root/SectionPanel/Column/MoneyPage"]
+unique_name_in_owner = true
+auto_translate_mode = 2
+custom_minimum_size = Vector2(380, 0)
+layout_mode = 2
+autowrap_mode = 3
+
+[node name="NextPayLabel" type="Label" parent="Hud/Root/SectionPanel/Column/MoneyPage"]
+unique_name_in_owner = true
+auto_translate_mode = 2
+custom_minimum_size = Vector2(380, 0)
+layout_mode = 2
+theme_type_variation = &"DimLabel"
+autowrap_mode = 3
+
+[node name="SoonPage" type="VBoxContainer" parent="Hud/Root/SectionPanel/Column"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="SoonLabel" type="Label" parent="Hud/Root/SectionPanel/Column/SoonPage"]
+unique_name_in_owner = true
+auto_translate_mode = 2
+custom_minimum_size = Vector2(380, 0)
+layout_mode = 2
+theme_type_variation = &"DimLabel"
+autowrap_mode = 3
+
+[node name="Toast" type="PanelContainer" parent="Hud/Root"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -200.0
+offset_top = 112.0
+offset_right = 200.0
+offset_bottom = 160.0
+grow_horizontal = 2
+mouse_filter = 2
+theme_type_variation = &"DialogPanel"
+
+[node name="ToastLabel" type="Label" parent="Hud/Root/Toast"]
+unique_name_in_owner = true
+auto_translate_mode = 2
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+horizontal_alignment = 1
+
+[node name="HintPanel" type="PanelContainer" parent="Hud/Root"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 16.0
+offset_top = -60.0
+offset_right = 216.0
+offset_bottom = -16.0
+grow_vertical = 0
+mouse_filter = 2
+
+[node name="ControlsHint" type="Label" parent="Hud/Root/HintPanel"]
+layout_mode = 2
+size_flags_vertical = 4
+theme_type_variation = &"DimLabel"
+text = "HUD_CONTROLS_HINT"
+
+[node name="LeaveDialog" parent="Hud/Root" instance=ExtResource("6_dialog")]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+title_key = "LEAVE_TITLE"
+body_key = "GARAGE_LEAVE_BODY"
+confirm_key = "LEAVE_CONFIRM"
+cancel_key = "GARAGE_STAY"
+
+[node name="QuitJobDialog" parent="Hud/Root" instance=ExtResource("6_dialog")]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+title_key = "QUIT_JOB_TITLE"
+body_key = "QUIT_JOB_BODY"
+confirm_key = "QUIT_JOB_CONFIRM"
+cancel_key = "QUIT_JOB_CANCEL"
