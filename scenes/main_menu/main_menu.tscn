@@ -1,0 +1,144 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://scenes/main_menu/main_menu.gd" id="1_menu"]
+[ext_resource type="Script" path="res://scenes/main_menu/menu_background.gd" id="2_background"]
+[ext_resource type="PackedScene" path="res://scenes/ui/settings_panel.tscn" id="3_settings"]
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_menu")
+
+[node name="Background" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("2_background")
+
+[node name="Content" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_right = 760.0
+grow_vertical = 2
+theme_override_constants/margin_left = 112
+theme_override_constants/margin_top = 80
+theme_override_constants/margin_bottom = 120
+
+[node name="Column" type="VBoxContainer" parent="Content"]
+layout_mode = 2
+theme_override_constants/separation = 6
+alignment = 1
+
+[node name="Tagline" type="Label" parent="Content/Column"]
+layout_mode = 2
+theme_type_variation = &"TagLabel"
+text = "MENU_TAGLINE"
+
+[node name="Title" type="Label" parent="Content/Column"]
+layout_mode = 2
+theme_type_variation = &"TitleLabel"
+text = "GAME_TITLE"
+
+[node name="Gap" type="Control" parent="Content/Column"]
+custom_minimum_size = Vector2(0, 36)
+layout_mode = 2
+
+[node name="ContinueButton" type="Button" parent="Content/Column"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(380, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+theme_type_variation = &"MainMenuButton"
+text = "MENU_CONTINUE"
+alignment = 0
+
+[node name="NewGameButton" type="Button" parent="Content/Column"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(380, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+theme_type_variation = &"MainMenuButton"
+text = "MENU_NEW_GAME"
+alignment = 0
+
+[node name="SettingsButton" type="Button" parent="Content/Column"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(380, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+theme_type_variation = &"MainMenuButton"
+text = "MENU_SETTINGS"
+alignment = 0
+
+[node name="QuitButton" type="Button" parent="Content/Column"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(380, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+theme_type_variation = &"MainMenuButton"
+text = "MENU_QUIT"
+alignment = 0
+
+[node name="VersionLabel" type="Label" parent="."]
+unique_name_in_owner = true
+auto_translate_mode = 2
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 132.0
+offset_top = -64.0
+offset_right = 700.0
+offset_bottom = -36.0
+grow_vertical = 0
+theme_type_variation = &"DimLabel"
+
+[node name="LanguageBar" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -160.0
+offset_top = -64.0
+offset_right = -32.0
+offset_bottom = -28.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_constants/separation = 4
+alignment = 2
+
+[node name="LangEnButton" type="Button" parent="LanguageBar"]
+unique_name_in_owner = true
+auto_translate_mode = 2
+layout_mode = 2
+tooltip_text = "English"
+focus_mode = 0
+theme_type_variation = &"LangButton"
+toggle_mode = true
+text = "EN"
+
+[node name="LangRuButton" type="Button" parent="LanguageBar"]
+unique_name_in_owner = true
+auto_translate_mode = 2
+layout_mode = 2
+tooltip_text = "Русский"
+focus_mode = 0
+theme_type_variation = &"LangButton"
+toggle_mode = true
+text = "RU"
+
+[node name="SettingsPanel" parent="." instance=ExtResource("3_settings")]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1

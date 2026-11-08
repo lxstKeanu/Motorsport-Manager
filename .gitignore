@@ -1,0 +1,7 @@
+# Кэш и импорт Godot 4
+.godot/
+/android/
+
+# Сборки
+/build/
+*.tmp

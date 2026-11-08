@@ -1,0 +1,24 @@
+keys,en,ru
+GAME_TITLE,GARAGE RACING,GARAGE RACING
+MENU_TAGLINE,FROM A GARAGE TO THE GRID,ИЗ ГАРАЖА — НА СТАРТ
+MENU_CONTINUE,CONTINUE,ПРОДОЛЖИТЬ
+MENU_CONTINUE_EMPTY,No saved games yet,Сохранений пока нет
+MENU_NEW_GAME,NEW GAME,НОВАЯ ИГРА
+MENU_SETTINGS,SETTINGS,НАСТРОЙКИ
+MENU_QUIT,QUIT,ВЫХОД
+MENU_BACK,Back,Назад
+MENU_VERSION,Prototype %s · working title,Прототип %s · рабочее название
+SETTINGS_TITLE,Settings,Настройки
+SETTINGS_LANGUAGE,Language,Язык
+SETTINGS_FULLSCREEN,Fullscreen,Полный экран
+SETTINGS_VOLUME_MASTER,Master volume,Общая громкость
+SETTINGS_VOLUME_MUSIC,Music,Музыка
+SETTINGS_VOLUME_SFX,Sound effects,Звуки
+SETTINGS_AUTOSAVE_HINT,Changes are applied and saved automatically.,Изменения применяются и сохраняются сразу.
+NEW_GAME_TITLE,New team,Новая команда
+NEW_GAME_STUB,"Next step: creating your character and helpers — name, role and appearance.","Следующий шаг — создание персонажа и помощников: имя, роль и внешность."
+BP_ENGINE,ENGINE · 1.6 L · 4 CYL,ДВИГАТЕЛЬ · 1.6 Л · 4 ЦИЛ
+BP_BRAKES,BRAKES · DISC / DRUM,ТОРМОЗА · ДИСК / БАРАБАН
+BP_TITLE,OLD SEDAN,СТАРЫЙ СЕДАН
+BP_STATUS,STATUS: NON-RUNNER,СОСТОЯНИЕ: НЕ НА ХОДУ
+BP_SHEET,SHEET 1/1 · SCALE 1:10 · MM,ЛИСТ 1/1 · МАСШТАБ 1:10 · ММ

@@ -1,0 +1,140 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://scenes/ui/settings_panel.gd" id="1_panel"]
+
+[node name="SettingsPanel" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_panel")
+
+[node name="Dim" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.02, 0.024, 0.03, 0.72)
+
+[node name="Center" type="CenterContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Window" type="PanelContainer" parent="Center"]
+custom_minimum_size = Vector2(640, 0)
+layout_mode = 2
+theme_type_variation = &"DialogPanel"
+
+[node name="Column" type="VBoxContainer" parent="Center/Window"]
+layout_mode = 2
+theme_override_constants/separation = 22
+
+[node name="Header" type="Label" parent="Center/Window/Column"]
+layout_mode = 2
+theme_type_variation = &"HeaderLabel"
+text = "SETTINGS_TITLE"
+
+[node name="Grid" type="GridContainer" parent="Center/Window/Column"]
+layout_mode = 2
+theme_override_constants/h_separation = 24
+theme_override_constants/v_separation = 18
+columns = 3
+
+[node name="LanguageLabel" type="Label" parent="Center/Window/Column/Grid"]
+layout_mode = 2
+text = "SETTINGS_LANGUAGE"
+
+[node name="LanguageOption" type="OptionButton" parent="Center/Window/Column/Grid"]
+unique_name_in_owner = true
+auto_translate_mode = 2
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="LanguageGap" type="Control" parent="Center/Window/Column/Grid"]
+layout_mode = 2
+
+[node name="FullscreenLabel" type="Label" parent="Center/Window/Column/Grid"]
+layout_mode = 2
+text = "SETTINGS_FULLSCREEN"
+
+[node name="FullscreenCheck" type="CheckButton" parent="Center/Window/Column/Grid"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 0
+
+[node name="FullscreenGap" type="Control" parent="Center/Window/Column/Grid"]
+layout_mode = 2
+
+[node name="MasterLabel" type="Label" parent="Center/Window/Column/Grid"]
+layout_mode = 2
+text = "SETTINGS_VOLUME_MASTER"
+
+[node name="MasterSlider" type="HSlider" parent="Center/Window/Column/Grid"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+step = 1.0
+
+[node name="MasterValue" type="Label" parent="Center/Window/Column/Grid"]
+unique_name_in_owner = true
+auto_translate_mode = 2
+custom_minimum_size = Vector2(52, 0)
+layout_mode = 2
+horizontal_alignment = 2
+
+[node name="MusicLabel" type="Label" parent="Center/Window/Column/Grid"]
+layout_mode = 2
+text = "SETTINGS_VOLUME_MUSIC"
+
+[node name="MusicSlider" type="HSlider" parent="Center/Window/Column/Grid"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+step = 1.0
+
+[node name="MusicValue" type="Label" parent="Center/Window/Column/Grid"]
+unique_name_in_owner = true
+auto_translate_mode = 2
+custom_minimum_size = Vector2(52, 0)
+layout_mode = 2
+horizontal_alignment = 2
+
+[node name="SfxLabel" type="Label" parent="Center/Window/Column/Grid"]
+layout_mode = 2
+text = "SETTINGS_VOLUME_SFX"
+
+[node name="SfxSlider" type="HSlider" parent="Center/Window/Column/Grid"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+step = 1.0
+
+[node name="SfxValue" type="Label" parent="Center/Window/Column/Grid"]
+unique_name_in_owner = true
+auto_translate_mode = 2
+custom_minimum_size = Vector2(52, 0)
+layout_mode = 2
+horizontal_alignment = 2
+
+[node name="Hint" type="Label" parent="Center/Window/Column"]
+layout_mode = 2
+theme_type_variation = &"DimLabel"
+text = "SETTINGS_AUTOSAVE_HINT"
+
+[node name="BackButton" type="Button" parent="Center/Window/Column"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(160, 0)
+layout_mode = 2
+size_flags_horizontal = 8
+text = "MENU_BACK"
